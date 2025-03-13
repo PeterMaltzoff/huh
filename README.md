@@ -15,6 +15,7 @@ A beautiful web application that processes text using Ollama models and visualiz
   - Smart node sizing that adapts to content length
   - Copy-to-clipboard functionality for node content
   - Special formatting for name-value pairs
+  - Direct diagonal edge connections for cleaner visualization
 - Beautiful purple and green color scheme
 - Handles non-JSON responses gracefully
 
@@ -66,6 +67,7 @@ Each layout can be selected from the control panel on the right side of the grap
    - Nodes automatically resize based on content length
    - You can copy node content with the copy button
    - Objects with exactly two keys (one being "name") get special formatting
+   - Connections between nodes use direct diagonal lines for clarity
 5. If the model doesn't return valid JSON, the application will attempt to extract JSON from the response or display the raw text
 6. Use the layout controls to optimize the visualization for your specific data
 
@@ -82,6 +84,9 @@ The control panel provides options to switch between different layout algorithms
 
 ### Special Formatting for Name-Value Pairs
 When the JSON contains a leaf object with exactly two keys, one being "name", the application displays it in a special format with the name prominently displayed at the top and the other property below. This is particularly useful for representing entities like people, products, or locations in a more intuitive way.
+
+### Direct Edge Connections
+The graph uses straight diagonal lines to connect nodes instead of orthogonal (right-angled) connections, creating a cleaner and more intuitive visualization of relationships between data elements.
 
 ## Technologies Used
 

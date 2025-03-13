@@ -233,7 +233,7 @@ function FlowContent() {
           source: 'root',
           target: `chunk-${index}`,
           animated: true,
-          type: 'smoothstep',
+          type: 'straight',
           style: { stroke: theme.palette.primary.main, strokeWidth: 2 },
           markerEnd: {
             type: MarkerType.ArrowClosed,
@@ -259,7 +259,7 @@ function FlowContent() {
         source: 'root',
         target: 'raw-text',
         animated: true,
-        type: 'smoothstep',
+        type: 'straight',
         style: { stroke: theme.palette.primary.main, strokeWidth: 2 },
         markerEnd: {
           type: MarkerType.ArrowClosed,
@@ -287,7 +287,7 @@ function FlowContent() {
         source: 'root',
         target: 'original-response',
         animated: true,
-        type: 'smoothstep',
+        type: 'straight',
         style: { stroke: theme.palette.primary.main, strokeWidth: 2 },
         markerEnd: {
           type: MarkerType.ArrowClosed,
@@ -356,7 +356,7 @@ function FlowContent() {
               source: parentId,
               target: nodeId,
               animated: true,
-              type: 'smoothstep',
+              type: 'straight',
               style: { stroke: theme.palette.primary.main, strokeWidth: 2 },
               markerEnd: {
                 type: MarkerType.ArrowClosed,
@@ -388,7 +388,7 @@ function FlowContent() {
               source: parentId,
               target: nodeId,
               animated: true,
-              type: 'smoothstep',
+              type: 'straight',
               style: { stroke: theme.palette.primary.main, strokeWidth: 2 },
               markerEnd: {
                 type: MarkerType.ArrowClosed,
@@ -428,7 +428,7 @@ function FlowContent() {
             source: parentId,
             target: `${parentId}-special-node`,
             animated: true,
-            type: 'smoothstep',
+            type: 'straight',
             style: { stroke: theme.palette.primary.main, strokeWidth: 2 },
             markerEnd: {
               type: MarkerType.ArrowClosed,
@@ -462,7 +462,7 @@ function FlowContent() {
                 source: parentId,
                 target: nodeId,
                 animated: true,
-                type: 'smoothstep',
+                type: 'straight',
                 style: { stroke: theme.palette.primary.main, strokeWidth: 2 },
                 markerEnd: {
                   type: MarkerType.ArrowClosed,
@@ -495,7 +495,7 @@ function FlowContent() {
                 source: parentId,
                 target: nodeId,
                 animated: true,
-                type: 'smoothstep',
+                type: 'straight',
                 style: { stroke: theme.palette.primary.main, strokeWidth: 2 },
                 markerEnd: {
                   type: MarkerType.ArrowClosed,
@@ -633,9 +633,9 @@ function FlowContent() {
             minZoom={0.1}
             maxZoom={1.5}
             defaultViewport={{ x: 0, y: 0, zoom: 0.5 }}
-            connectionLineType={ConnectionLineType.SmoothStep}
+            connectionLineType={ConnectionLineType.Straight}
             defaultEdgeOptions={{
-              type: 'smoothstep',
+              type: 'straight',
               animated: true,
               style: { stroke: theme.palette.primary.main, strokeWidth: 2 },
               markerEnd: {
