@@ -99,4 +99,4 @@ The graph uses straight diagonal lines to connect nodes instead of orthogonal (r
 
 ## License
 
-MIT
+This project is licensed under the [MIT License](LICENSE).
