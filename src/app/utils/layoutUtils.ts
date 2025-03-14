@@ -7,9 +7,9 @@ const elk = new ELK();
 // Default layout options - all values must be strings for ELK
 const defaultOptions = {
   'elk.algorithm': 'layered',
-  'elk.layered.spacing.nodeNodeBetweenLayers': '150',
-  'elk.spacing.nodeNode': '100',
-  'elk.padding': '[top=50, left=50, bottom=50, right=50]',
+  'elk.layered.spacing.nodeNodeBetweenLayers': '80',
+  'elk.spacing.nodeNode': '50',
+  'elk.padding': '[top=30, left=30, bottom=30, right=30]',
   'elk.edgeRouting': 'STRAIGHT',
   'elk.layered.nodePlacement.strategy': 'NETWORK_SIMPLEX'
 };
@@ -88,11 +88,13 @@ export const getLayoutedElements = async (
  */
 export const getRadialLayout = async (
   nodes: Node[],
-  edges: Edge[]
+  edges: Edge[],
+  layoutOptions: Record<string, string> = {}
 ): Promise<{ nodes: Node[], edges: Edge[] }> => {
   return getLayoutedElements(nodes, edges, {
     'elk.algorithm': 'org.eclipse.elk.radial',
-    'elk.edgeRouting': 'STRAIGHT'
+    'elk.edgeRouting': 'STRAIGHT',
+    ...layoutOptions
   });
 };
 
@@ -101,14 +103,16 @@ export const getRadialLayout = async (
  */
 export const getForceLayout = async (
   nodes: Node[],
-  edges: Edge[]
+  edges: Edge[],
+  layoutOptions: Record<string, string> = {}
 ): Promise<{ nodes: Node[], edges: Edge[] }> => {
   return getLayoutedElements(nodes, edges, {
     'elk.algorithm': 'org.eclipse.elk.force',
     'elk.force.iterations': '300',
     'elk.force.repulsivePower': '50',
     'elk.edgeRouting': 'STRAIGHT',
-    'elk.spacing.nodeNode': '120'
+    'elk.spacing.nodeNode': '120',
+    ...layoutOptions
   });
 };
 
@@ -117,14 +121,16 @@ export const getForceLayout = async (
  */
 export const getHorizontalTreeLayout = async (
   nodes: Node[],
-  edges: Edge[]
+  edges: Edge[],
+  layoutOptions: Record<string, string> = {}
 ): Promise<{ nodes: Node[], edges: Edge[] }> => {
   return getLayoutedElements(nodes, edges, {
     'elk.algorithm': 'layered',
     'elk.direction': 'RIGHT',
     'elk.layered.spacing.nodeNodeBetweenLayers': '200',
     'elk.spacing.nodeNode': '150',
-    'elk.edgeRouting': 'STRAIGHT'
+    'elk.edgeRouting': 'STRAIGHT',
+    ...layoutOptions
   });
 };
 
@@ -133,13 +139,15 @@ export const getHorizontalTreeLayout = async (
  */
 export const getVerticalTreeLayout = async (
   nodes: Node[],
-  edges: Edge[]
+  edges: Edge[],
+  layoutOptions: Record<string, string> = {}
 ): Promise<{ nodes: Node[], edges: Edge[] }> => {
   return getLayoutedElements(nodes, edges, {
     'elk.algorithm': 'layered',
     'elk.direction': 'DOWN',
     'elk.layered.spacing.nodeNodeBetweenLayers': '150',
     'elk.spacing.nodeNode': '100',
-    'elk.edgeRouting': 'STRAIGHT'
+    'elk.edgeRouting': 'STRAIGHT',
+    ...layoutOptions
   });
 }; 

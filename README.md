@@ -1,102 +1,58 @@
-# Huh - Ollama Text Processor
+# huh
 
-A beautiful web application that processes text using Ollama models and visualizes the results as a JSON graph.
+visualize your codebase as a graph. uses ollama to parse code and turn it into json. then renders that shit with react flow.
 
-## Features
+## what it does
 
-- Clean, modern UI with Material UI components
-- Text processing with Ollama models
-- Two-step processing: Explain text → Convert to JSON
-- Advanced JSON visualization with React Flow:
-  - Hierarchical representation of nested JSON objects and arrays
-  - Color-coded nodes based on data types
-  - Interactive graph with zoom, pan, and minimap
-  - Multiple layout algorithms (Vertical Tree, Horizontal Tree, Radial, Force-Directed)
-  - Smart node sizing that adapts to content length
-  - Copy-to-clipboard functionality for node content
-  - Special formatting for name-value pairs
-  - Direct diagonal edge connections for cleaner visualization
-- Beautiful purple and green color scheme
-- Handles non-JSON responses gracefully
+- parses your code with ollama (default: gemma3)
+- converts to json
+- renders a sick interactive graph
+- has multiple layouts (vertical, horizontal, radial, force-directed)
+- color codes by data type
+- direct edges between nodes (none of that right-angle bullshit)
+- smart node sizing
+- copy node content with one click
 
-## Layout Algorithms
+## get it running
 
-The application now supports multiple layout algorithms to optimize node spacing and visualization:
+```bash
+# clone this
+git clone https://github.com/yourusername/huh.git
+cd huh
 
-1. **Vertical Tree Layout**: Organizes nodes in a top-down tree structure, ideal for hierarchical data.
-2. **Horizontal Tree Layout**: Arranges nodes in a left-to-right tree structure, better for wide hierarchies.
-3. **Radial Layout**: Places nodes in a circular pattern around the root node, good for compact visualization.
-4. **Force-Directed Layout**: Uses physics simulation to position nodes, automatically minimizing overlaps.
+# install deps
+npm install
 
-Each layout can be selected from the control panel on the right side of the graph. The application automatically applies the vertical tree layout when data is first loaded.
+# start ollama (you need this installed)
+ollama run gemma3
 
-## Prerequisites
+# run it
+npm run dev
 
-- Node.js and npm
-- Ollama installed and running locally
-- A running Ollama model (defaults to 'gemma3')
+# go to http://localhost:3000
+```
 
-## Getting Started
+## how to use
 
-1. Clone the repository
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Start Ollama with your preferred model:
-   ```
-   ollama run gemma3
-   ```
-4. Run the development server:
-   ```
-   npm run dev
-   ```
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
+1. paste your code
+2. hit the green play button
+3. wait for ollama to do its thing
+4. play with the graph
+5. profit
 
-## How It Works
+## tech stack
 
-1. Enter text in the input field
-2. Click the green play button
-3. The text is sent to the Ollama API for processing:
-   - First, Ollama explains the text
-   - Then, Ollama converts the explanation to JSON
-4. The JSON result is visualized as an interactive graph:
-   - Each JSON key becomes a node
-   - Nested objects and arrays are displayed hierarchically
-   - Nodes are color-coded by data type (string, number, boolean, etc.)
-   - Nodes automatically resize based on content length
-   - You can copy node content with the copy button
-   - Objects with exactly two keys (one being "name") get special formatting
-   - Connections between nodes use direct diagonal lines for clarity
-5. If the model doesn't return valid JSON, the application will attempt to extract JSON from the response or display the raw text
-6. Use the layout controls to optimize the visualization for your specific data
+- next.js
+- react
+- material ui
+- react flow
+- elk layout algorithms
+- ollama api
 
-## Advanced Features
+## why?
 
-### Smart Node Sizing
-Nodes automatically adjust their width based on the content length, ensuring that text is displayed properly without unnecessary truncation or wrapping.
+because visualizing code structure is cool and LLMs are good at understanding code. also i was bored.
 
-### Copy to Clipboard
-Each node includes a copy button that allows you to easily copy the node's content to your clipboard.
+## license
 
-### Layout Controls
-The control panel provides options to switch between different layout algorithms, allowing you to find the best visualization for your data structure.
-
-### Special Formatting for Name-Value Pairs
-When the JSON contains a leaf object with exactly two keys, one being "name", the application displays it in a special format with the name prominently displayed at the top and the other property below. This is particularly useful for representing entities like people, products, or locations in a more intuitive way.
-
-### Direct Edge Connections
-The graph uses straight diagonal lines to connect nodes instead of orthogonal (right-angled) connections, creating a cleaner and more intuitive visualization of relationships between data elements.
-
-## Technologies Used
-
-- Next.js
-- React
-- Material UI
-- React Flow for interactive graph visualization
-- ELK layout algorithms for optimized node positioning
-- Ollama API (with gemma3 model)
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+MIT. do whatever you want.
